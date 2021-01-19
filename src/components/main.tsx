@@ -1,18 +1,44 @@
+import { Container } from '@material-ui/core';
 import React, { useState } from 'react'
-import { createMuiTheme } from '@material-ui/core'
-import { ThemeProvider } from "@material-ui/styles";
-import { PersistentDrawerLeft } from './persistentDrawerLeft'
-const theme = createMuiTheme({
-    palette: {
-        type: "dark"
-    },
-});
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { TopBar } from './TopBar'
+
 
 
 export function Main() {
     return (
-        <ThemeProvider theme={theme}>
-
-        </ThemeProvider>
+        <div>
+            <BrowserRouter>
+                <TopBar />
+                <Container>
+                    <Switch>
+                        <Route path='/dashboard' >
+                            Hello
+                        </Route>
+                        <Route path='/showallwords' >
+                            Hello
+                        </Route>
+                        <Route path='/showlists' >
+                            Hello
+                        </Route>
+                        <Route path='/createlist' >
+                            Hello
+                        </Route>
+                        <Route path='/addwordtolist' >
+                            Hello
+                        </Route>
+                        <Route path='/settings' >
+                            Hello
+                        </Route>
+                        <Route path='/account' >
+                            Hello
+                        </Route>
+                        <Route path='/' >
+                            <Redirect to="/dashboard" />
+                        </Route>
+                    </Switch>
+                </Container>
+            </BrowserRouter>
+        </div>
     )
 }

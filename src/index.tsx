@@ -1,20 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { createMuiTheme } from '@material-ui/core'
+import { ThemeProvider } from "@material-ui/styles";
 import { Main } from './components/main'
 
-const SW = () => (
-  <BrowserRouter>
-    <Switch>
-      <Route path='/' >
-        <Main />
-      </Route>
-    </Switch>
-  </BrowserRouter>
+const theme = createMuiTheme({
+  palette: {
+    type: "dark"
+  },
+});
 
+const SW = () => (
+  <ThemeProvider theme={theme}>
+    <Main />
+  </ThemeProvider>
 )
 
 ReactDOM.render(<SW />, document.getElementById('root'));
