@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { createMuiTheme } from '@material-ui/core'
+import { createMuiTheme, CssBaseline } from '@material-ui/core'
 import { ThemeProvider } from "@material-ui/styles";
 import { Main } from './components/main'
 
@@ -14,6 +14,7 @@ const theme = createMuiTheme({
 
 const SW = () => (
   <ThemeProvider theme={theme}>
+    <CssBaseline />
     <Main />
   </ThemeProvider>
 )

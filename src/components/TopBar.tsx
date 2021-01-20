@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { AppBar, Toolbar, IconButton, Typography, Button, makeStyles, Theme, Drawer, List, ListItem, ListItemIcon, ListItemText, Divider } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Typography, makeStyles, Theme, Drawer, List, Divider } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -39,10 +39,13 @@ export function TopBar() {
 
     const [isAccountDrawerOpen, setIsAccountDrawerOpen] = useState(false);
     const toggleAccountDrawerOpen = () => setIsAccountDrawerOpen(!isAccountDrawerOpen);
-
+    const handleDrawerClose = () => {
+        isDrawerOpen && setIsDrawerOpen(false);
+        isAccountDrawerOpen && setIsAccountDrawerOpen(false);
+    }
 
     return (
-        <div>
+        <div onClick={handleDrawerClose}>
             <AppBar position="static" className={classes.bgColor}>
                 <Toolbar>
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawerOpen}>

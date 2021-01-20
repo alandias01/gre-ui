@@ -1,8 +1,8 @@
 import { Container } from '@material-ui/core';
-import React, { useState } from 'react'
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { TopBar } from './TopBar'
-
+import { ShowWords } from './ShowWords';
 
 
 export function Main() {
@@ -10,31 +10,31 @@ export function Main() {
         <div>
             <BrowserRouter>
                 <TopBar />
-                <Container>
+                <Container style={{ marginTop: "20px" }}>
                     <Switch>
                         <Route path='/dashboard' >
-                            Hello
+                            dashboard
                         </Route>
                         <Route path='/showallwords' >
-                            Hello
+                            <ShowWords />
                         </Route>
                         <Route path='/showlists' >
-                            Hello
+                            showlists
                         </Route>
                         <Route path='/createlist' >
-                            Hello
+                            createlist
                         </Route>
                         <Route path='/addwordtolist' >
-                            Hello
+                            addwordtolist
                         </Route>
                         <Route path='/settings' >
-                            Hello
+                            settings
                         </Route>
                         <Route path='/account' >
-                            Hello
+                            account
                         </Route>
                         <Route path='/' >
-                            <Redirect to="/dashboard" />
+                            Main
                         </Route>
                     </Switch>
                 </Container>
