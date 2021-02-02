@@ -68,7 +68,7 @@ export function TopBar() {
                 <Divider />
                 <List>
                     <ListItemLink to="/dashboard" primary="Dashboard" />
-                    <ListItemLink to="/showallwords" primary="Show All Words" />
+                    <ListItemLink to="/showwords" primary="Show Words" />
                     <ListItemLink to="/showlists" primary="Show Lists" />
                     <Divider />
                     <ListItemLink to="/createlist" primary="Create List" />

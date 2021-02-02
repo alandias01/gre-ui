@@ -5,6 +5,9 @@ import reportWebVitals from './reportWebVitals';
 import { createMuiTheme, CssBaseline } from '@material-ui/core'
 import { ThemeProvider } from "@material-ui/styles";
 import { Main } from './components/main'
+import { BrowserRouter } from 'react-router-dom';
+import { Container } from '@material-ui/core';
+import { TopBar } from './components/TopBar';
 
 const theme = createMuiTheme({
   palette: {
@@ -15,9 +18,16 @@ const theme = createMuiTheme({
 const SW = () => (
   <ThemeProvider theme={theme}>
     <CssBaseline />
-    <Main />
+    <BrowserRouter>
+      <TopBar />
+      <Container style={{ marginTop: "20px" }}>
+        <Main />
+      </Container>
+    </BrowserRouter>
+
   </ThemeProvider>
-)
+);
+
 
 ReactDOM.render(<SW />, document.getElementById('root'));
 
