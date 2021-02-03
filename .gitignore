@@ -8,8 +8,8 @@
 # testing
 /coverage
 
-# production
-/build
+# production Since we are using cpanel managed repositories, we push build files and use .cpanel.yml
+#/build
 
 # misc
 .DS_Store

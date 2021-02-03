@@ -1,5 +1,6 @@
 {
   "name": "gre-ui",
+  "homepage": "https://alanswork.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
