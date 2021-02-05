@@ -1,5 +1,7 @@
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { ShowWords } from './ShowWords';
+import { ShowLists } from './ShowLists';
+import { Login } from './login'
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -9,14 +11,17 @@ export function Main() {
     let query = useQuery();
     return (
         <Switch>
+            <Route path='/login' >
+                <Login />
+            </Route>
             <Route path='/dashboard' >
                 dashboard
             </Route>
             <Route path='/showwords' >
-                <ShowWords Email={query.get("email")!} />
+                <ShowWords listName={query.get("listname")!} />
             </Route>
             <Route path='/showlists' >
-                showlists
+                <ShowLists />
             </Route>
             <Route path='/createlist' >
                 createlist

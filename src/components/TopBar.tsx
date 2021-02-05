@@ -6,6 +6,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import AccountIcon from '@material-ui/icons/AccountCircle'
 import SettingsIcon from '@material-ui/icons/Settings';
 import LockIcon from '@material-ui/icons/Lock';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
 import { ListItemLink } from '../utils/ListItemLink';
 
 const useStylesTopBar = makeStyles((theme: Theme) => ({
@@ -84,6 +85,7 @@ export function TopBar() {
                 </div>
                 <Divider />
                 <List>
+                    <ListItemLink to="/login" primary="Login" icon={<LockOpenIcon />} />
                     <ListItemLink to="/settings" primary="Settings" icon={<SettingsIcon />} />
                     <ListItemLink to="/account" primary="Account" icon={<LockIcon />} />
                 </List>

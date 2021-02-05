@@ -5,12 +5,6 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { WordCard } from "./wordCard";
 import api from "../services/api";
-import { getConfigFileParsingDiagnostics } from "typescript";
-
-interface IShowWordsProps {
-  Email?: string;
-  ListName?: string;
-}
 
 interface IWord {
   word: string;
@@ -25,9 +19,9 @@ const useStylesShowWords = makeStyles({
   },
 });
 
-export function ShowWords(props: IShowWordsProps) {
+export function ShowWords({ listName }: { listName?: string }) {
   const classes = useStylesShowWords();
-  const { ListName, Email } = props;
+
   const numberOfWordsToShow: number = 6;
   const [paginationCount, setPaginationCount] = useState<number>(0);
   const [paginationPage, setPaginationPage] = useState<number>();
@@ -36,9 +30,8 @@ export function ShowWords(props: IShowWordsProps) {
 
   useEffect(() => {
 
-
-    if (Email) {
-      api.getuserlists(Email).then((data) => {
+    if (listName) {
+      api.getuserlists(listName).then((data) => {
         setWords(data);
         setPaginationCount(Math.floor(data.length / numberOfWordsToShow) + 1);
         displayWords(1);
