@@ -1,4 +1,5 @@
-const baseUrl = "https://alanswork.com/api/";
+//const baseUrl = "https://alanswork.com/api/";
+const baseUrl = "http://localhost:3001/api/";
 const api = {
   getWords: fetch(`${baseUrl}getwords`).then((response) =>
     response.clone().json()

@@ -1,5 +1,6 @@
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { ShowWords } from './ShowWords';
+import {} from './ShowLists';
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
