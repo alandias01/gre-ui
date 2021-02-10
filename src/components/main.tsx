@@ -1,6 +1,6 @@
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { ShowWords } from './ShowWords';
-import {} from './ShowLists';
+import { ShowLists } from './ShowLists';
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -17,7 +17,7 @@ export function Main() {
                 <ShowWords Email={query.get("email")!} />
             </Route>
             <Route path='/showlists' >
-                showlists
+                <ShowLists Email={query.get("email")!} />
             </Route>
             <Route path='/createlist' >
                 createlist

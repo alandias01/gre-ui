@@ -20,10 +20,7 @@ interface IUserList {
 }
 
 const useStylesShowLists = makeStyles({
-  largeIcon: {
-    width: 350,
-    height: 150,
-  },
+
 });
 
 export function ShowLists(props: IShowListsProps) {
@@ -37,36 +34,34 @@ export function ShowLists(props: IShowListsProps) {
 
   useEffect(() => {
     if (Email) {
-      api.getuserlists(Email).then((data) => {
-        setWords(data);
-        setPaginationCount(Math.floor(data.length / numberOfItemsToShow) + 1);
-        displayWords(1);
+      api.getUserListsDistinct(Email, "list").then((data) => {
+        let d1 = data.clone().json();
+        console.log(d1);
+        //setUserLists(data);
+
+        //setPaginationCount(Math.floor(data.length / numberOfItemsToShow) + 1);
+        //displayLists(1);
       }).catch((err) => console.log(err));
     }
     else {
-      api.getWords
-        .then((data: IWord[]) => {
-          setWords(data);
-          setPaginationCount(Math.floor(data.length / numberOfItemsToShow) + 1);
-          displayWords(1);
-        });
+
     }
-  }, [paginationCount]);
+  }, [Email]);
 
   const handlePageChange = (event: React.ChangeEvent<unknown>, page: number) =>
-    displayWords(page);
+    displayLists(page);
 
   const displayLists = (page: number) => {
     const startIndex = (page - 1) * numberOfItemsToShow;
     const endIndex = startIndex + numberOfItemsToShow;
-    const data = words.slice(startIndex, endIndex);
-    setWordsToShow(data);
+    const data = userLists.slice(startIndex, endIndex);
+    setUserListsToShow(data);
   };
 
   return (
     <div>
       <Grid container spacing={2}>
-        {wordsToShow.map((x, index) => (
+        {userListsToShow.map((x, index) => (
           <Grid item xs={12} sm={"auto"} key={index}>
             <WordCard word={x.word} definition={x.definition} />
           </Grid>

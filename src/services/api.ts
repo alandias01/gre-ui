@@ -10,7 +10,10 @@ const api = {
     fetch(`${baseUrl}getuserlists?email=${email}`).then((response) =>
       response.clone().json()
     ),
-  getUserListsDistinct: fetch(`${baseUrl}getUserListsDistinct`),
+  getUserListsDistinct: (email: string, distinctField: string) =>
+    fetch(
+      `${baseUrl}getUserListsDistinct?distinctfield=${distinctField}&email=${email}`
+    ),
 };
 
 export default api;
