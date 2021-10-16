@@ -45,7 +45,7 @@ export function ShowWords({ listName }: { listName?: string }) {
           displayWords(1);
         });
     }
-  }, [paginationCount]);
+  }, [paginationCount, listName]);
 
   const handlePageChange = (event: React.ChangeEvent<unknown>, page: number) =>
     displayWords(page);
