@@ -1,5 +1,7 @@
-//const baseUrl = "https://alanswork.com/api/";
-const baseUrl = "http://localhost:3001/api/";
+const isProduction = process.env.NODE_ENV === "production";
+
+const baseUrl = isProduction ? "https://alanswork.com/api/" : "http://localhost:3001/api/";
+console.log("baseUrl:" + baseUrl);
 export const apikeys = { accessToken: undefined };
 
 const authHeader = () => `Authorization: Bearer ${apikeys.accessToken}`;
