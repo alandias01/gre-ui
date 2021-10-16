@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 const useStylesWordCard = makeStyles({
     root: {
         minWidth: 300,
-        maxWidth: 300,
+        "@media (min-width: 600px)": { maxWidth: 300 },
         height: 200,
         borderRadius: 0,
         borderTopStyle: "solid",
