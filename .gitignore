@@ -9,7 +9,7 @@
 /coverage
 
 # production Since we are using cpanel managed repositories, we push build files and use .cpanel.yml
-#/build
+/build
 
 # misc
 .DS_Store
