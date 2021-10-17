@@ -29,6 +29,18 @@ export function ShowWords({ listName }: { listName?: string }) {
   const [words, setWords] = useState<IWord[]>([]);
   const [wordsToShow, setWordsToShow] = useState<IWord[]>([]);
 
+  const wordArraySort = (a: IWord, b: IWord) => {
+    var wordA = a.word.toUpperCase(); // ignore upper and lowercase
+    var wordB = b.word.toUpperCase(); // ignore upper and lowercase
+    if (wordA < wordB) {
+      return -1;
+    }
+    if (wordA > wordB) {
+      return 1;
+    }
+    return 0;
+  }
+
   useEffect(() => {
 
     if (listName) {
