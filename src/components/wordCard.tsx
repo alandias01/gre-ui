@@ -42,7 +42,7 @@ export function WordCard(props: IWordCardProps) {
     }
     return (
         <Card className={classes.root} >
-            <CardActionArea onClick={handleClick} >
+            <CardActionArea onClick={handleClick} style={{ height: 'inherit' }}>
                 <CardContent>
                     <Typography color="textSecondary" gutterBottom>
                         {props.heading}
@@ -58,9 +58,6 @@ export function WordCard(props: IWordCardProps) {
                     </Typography>
                 </CardContent>
             </CardActionArea>
-            <CardActions>
-                <Button size="small">Learn More</Button>
-            </CardActions>
         </Card>
     );
 }
