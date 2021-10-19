@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -29,8 +29,16 @@ export interface IWordCardProps {
 
 export function WordCard(props: IWordCardProps) {
     const classes = useStylesWordCard();
+    const [toggleClick, setToggleClick] = useState(false);
+    const showDefinition = () => props.clickContent || toggleClick;
+
     const handleClick = () => {
-        props.clickContent && props.clickContent({ word: props.word, definition: props.definition });
+        if (props.clickContent) {
+            props.clickContent({ word: props.word, definition: props.definition });
+        }
+        else {
+            setToggleClick(x => !x);
+        }
     }
     return (
         <Card className={classes.root} >
@@ -46,7 +54,7 @@ export function WordCard(props: IWordCardProps) {
                         {props.type}
                     </Typography>
                     <Typography variant="body2" component="p">
-                        {props.definition}
+                        {showDefinition() && props.definition}
                     </Typography>
                 </CardContent>
             </CardActionArea>

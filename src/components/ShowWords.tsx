@@ -79,7 +79,7 @@ export function ShowWords({ listName }: { listName?: string }) {
     <div {...swipeHandlers}>
       <Grid container spacing={2}>
         {wordsToShow.map((x, index) => (
-          <Grid item xs={12} sm={"auto"} key={index}>
+          <Grid item xs={12} sm={"auto"} key={x.word}>
             <WordCard word={x.word} definition={x.definition} />
           </Grid>
         ))}
